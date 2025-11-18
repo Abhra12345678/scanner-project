@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Love ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #ffe6f2;
+      overflow-x: hidden;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -10px;
+      color: #ff5a85;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) translateX(0); opacity: 0.8; }
+      100% { transform: translateY(-120vh) translateX(40px); opacity: 0; }
+    }
+
+    /* Intro screen */
+    #intro {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffb3d9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+    #intro h1 {
+      font-size: 32px;
+      color: white;
+      margin-bottom: 15px;
+    }
+    #intro button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      background: white;
+      color: #ff4f81;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Main slider */
+    .slider {
+      width: 90%;
+      max-width: 420px;
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      overflow: hidden;
+      margin: 40px auto;
+      text-align: center;
+      padding-bottom: 20px;
+      display: none;
+    }
+
+    .slide {
+      display: none;
+      padding: 20px;
+      animation: fade 0.7s ease;
+    }
+
+    @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+    .slide img {
+      width: 100%;
+      border-radius: 20px;
+      margin-bottom: 15px;
+    }
+
+    .slide p {
+      font-size: 18px;
+      color: #ff4f81;
+      font-weight: 600;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 25px;
+      margin-top: 10px;
+    }
+
+    button {
+      background: #ff4f81;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 12px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    audio { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- BACKGROUND MUSIC -->
+  <audio id="bg-music" loop>
+    <source src="music.mp3" type="audio/mp3" />
+  </audio>
+
+  <!-- INTRO PAGE -->
+  <div id="intro">
+    <h1>Happy Princess Day, Liviya 👑❤️</h1>
+    <h2>A small gift for you as you wished... ✨</h2>
+    <button onclick="startSurprise()">Open 💗</button>
+  </div>
+
+  <!-- SLIDER -->
+  <div class="slider" id="slider">
+    <div class="slide" style="display:block;">
+      <img src="your-photo1.jpg" />
+      <p>Liviya, My princess I LOVE YOU so much... ❤️</p>
+    </div>
+
+    <div class="slide">
+      <img src="your-photo2.jpg" />
+      <p>Your are the cutest thing in the whole universe...✨ Just NEVER leave me... </p>
+    </div>
+
+    <div class="slide">
+      <img src="your-photo4.jpg" />
+      <p> MY princess Liviya.. YOU are best thing ever happened to me.. YOU are the best feeling in this universe... I LOVE YOU so much... 💖</p>
+    </div>
+
+    <!-- PLAYLIST SLIDE -->
+    <div class="slide">
+      <h2 style="color:#ff4f81; margin-bottom:10px;">A Dedicated Playlist For You 🎶💗</h2>
+      <p style="margin-top:-5px; margin-bottom:15px; color:#ff9abb;">I hope you’ll like it, my princess ✨</p>
+
+      <div style="background:#ffe6f2; padding:15px; border-radius:20px; box-shadow:0 2px 12px rgba(0,0,0,0.1);">
+        <img src="playlist-art.jpg" style="width:100%; border-radius:15px; margin-bottom:15px;" />
+
+        <!-- SONG 1 -->
+        <h3 style="color:#ff4f81; margin:5px 0;">Dil Tu Jaan Tu</h3>
+        <p style="color:#ff7fa9; margin:0 0 10px 0;"> Dedicated to you... 💖</p>
+        <audio id="song1">
+          <source src="dil-tu-jaan-tu.mp3" type="audio/mp3" />
+        </audio>
+        <button onclick="playSong('song1')">▶ Play Song 1</button>
+
+        <!-- SONG 2 -->
+        <h3 style="color:#ff4f81; margin:15px 0 5px 0;">Favourite</h3>
+        <p style="color:#ff7fa9; margin:0 0 10px 0;">Your favourite... ✨</p>
+        <audio id="song2">
+          <source src="song2.mp3" type="audio/mp3" />
+        </audio>
+        <button onclick="playSong('song2')">▶ Play Song 2</button>
+      </div>
+
+      <button onclick="nextSlide()" style="margin-top:20px;">Continue to Next ✨</button>
+    </div>
+
+    <!-- LETTER SLIDE -->
+    <div class="slide">
+      <h2 style="color:#ff4f81; margin-bottom:15px;">A Last Letter for My Princess Liviya 💌</h2>
+      <p style="text-align:left; line-height:1.6; color:#ff4f81; font-weight:500; font-size:16px; white-space:pre-wrap;">
+My dearest princess Liviya,
+
+Today is your special day — Princess Day — and I wanted to give you something that feels as special as you are. Before you came into my life, things felt ordinary, but you arrived gently and beautifully, and changed everything without even trying. You brought light, peace, and a kind of happiness I didn't know my heart was waiting for.
+
+I call you my princess because that is exactly what you are to me — someone precious, someone rare, someone I want to protect, love, and cherish every day. You live not just in my life but in my heart, my thoughts, and every dream of my future.
+
+Liviya, you make the world softer. Your smile makes my day brighter. Your voice makes everything feel lighter. Your presence turns ordinary moments into memories I want to keep forever.
+
+I want you to know this: I am proud to love you. I am proud to call you mine. And I am grateful every single day that my heart chose you.
+
+You deserve everything beautiful — love, warmth, loyalty, and peace. And as long as I am here, you will never have to doubt how deeply, honestly, and endlessly you are loved.
+
+I know now things are hard for you... but... I will be always with you I PROMISE...
+
+Happy Princess Day, my love. I hope this little surprise brings a smile to your face just like you bring to my heart every single day.
+
+Forever yours,
+Your one and only.
+      </p>
+    </div>
+
+    <!-- CLOSING SLIDE -->
+    <div class="slide">
+      <h2 style="color:#ff4f81; margin-bottom:20px; font-size:28px;">That's all for now, my Princess 💖✨</h2>
+      
+      <p style="color:#ff4f81; font-size:18px; line-height:1.6; margin-bottom:20px;">
+      Liviya, MUjhe lagta ye apko accha hi laga hoga 😊  
+      Remember, you are my princess forever... 👑❤️  
+      Thank you for being the most amazing part of my life.
+
+      SO thats alll buiiii buiiiiii
+      </p>
+      
+      <img src="your-photo3.jpg" style="width:150px; margin-bottom:20px;" />
+      
+      
+    </div>
+
+    <div class="buttons">
+      <button onclick="prevSlide()">⬅</button>
+      <button onclick="nextSlide()">➡</button>
+    </div>
+  </div>
+
+  <script>
+    // Start surprise
+    function startSurprise() {
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("slider").style.display = "block";
+
+      let music = document.getElementById("bg-music");
+      music.volume = 0.4;
+      music.play();
+    }
+
+    // Slider logic
+    let index = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(i) {
+      slides.forEach((s, idx) => s.style.display = 'none');
+      slides[i].style.display = 'block';
+
+      // Hide next button on last slide
+      const nextBtn = document.querySelector('.buttons button:last-child');
+      if(i === slides.length - 1){
+        nextBtn.style.display = 'none';
+      } else {
+        nextBtn.style.display = 'inline-block';
+      }
+    }
+
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }
+
+    function prevSlide() {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+    }
+
+    // Floating hearts
+    setInterval(() => {
+      let heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💗";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (20 + Math.random() * 20) + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 400);
+
+    // Play selected song
+    function playSong(id) {
+      const songs = ['song1','song2'];
+      songs.forEach(s => {
+        let audio = document.getElementById(s);
+        audio.pause();
+        audio.currentTime = 0;
+      });
+
+      const selected = document.getElementById(id);
+      selected.volume = 0.8;
+      selected.play();
+    }
+  </script>
+
+</body>
+</html>
